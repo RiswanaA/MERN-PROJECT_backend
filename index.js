@@ -8,10 +8,10 @@ const CarModel = require("./models/carModel");
 const CustomerModel = require("./models/Customer");
 //const { render } = require("ejs");
 const dbConnection = require('./db');
-//mongoose.connect('mongodb+srv://Riswana:forDatabase1@cluster0.uhgwwji.mongodb.net/carrental',{useUnifiedTopology: true, useNewUrlParser: true});
-//mongoose.connect('mongodb+srv://neha:neha123@cluster0.5k7fhgl.mongodb.net/rsnv_cars',{useUnifiedTopology: true, useNewUrlParser: true})
-//mongoose.connect('mongodb+srv://Riswana:forDatabase1@cluster0.uhgwwji.mongodb.net/?retryWrites=true&w=majority');
-mongoose.connect('mongodb+srv://riswana1:riswana1@cluster0.uhgwwji.mongodb.net/test');
+
+mongoose.connect('mongodb+srv://neha:neha123@cluster0.5k7fhgl.mongodb.net/rsnv_cars',{useUnifiedTopology: true, useNewUrlParser: true})
+
+//mongoose.connect('mongodb+srv://riswana1:riswana1@cluster0.uhgwwji.mongodb.net/test');
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -41,16 +41,19 @@ app.post("/signup", async (req, res) => {
 
 });
 app.post("/owner", async (req, res) => {
-  const Car_id = req.body.Car_id;
+  //const Car_id = req.body.Car_id;
   const Car_name = req.body.Car_name;
+  const Car_image=req.body.Car_image;
   const Rent_per_day = req.body.Rent_per_day;
   const Fuel_type = req.body.Fuel_type;
   const Seater = req.body.Seater;
 
 
   const newCar = new CarModel({
-    Car_id: Car_id,
+    //Car_id: Car_id,
+
     Car_name: Car_name,
+    Car_image:Car_image,
     Rent_per_day: Rent_per_day,
     Fuel_type: Fuel_type,
     Seater: Seater
